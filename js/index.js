@@ -71,7 +71,7 @@ window.onscroll = () => {
         link.classList.remove("active");
       });
 
-      // Fix: Use template literals for proper string interpolation
+      // Use template literals for proper string interpolation
       // and add a null check before accessing classList
       const activeLink = document.querySelector(`header nav a[href*="${id}"]`);
       if (activeLink) {
@@ -150,38 +150,9 @@ messageForm.addEventListener("submit", function (event) {
   messageSection.style.display = "block";
 });
 
-// // Get repository from GitHub
-// fetch("https://api.github.com/users/sabina0407/repos")
-
-// //Get the response
-// .then((response) => {
-//     if (!response.ok) {
-//         throw new Error("Request failed!");
-//     }
-//     return response.json(); //Parsing the response as JSON
-// })
-
-// // Get the data
-// .then((data) => {
-//     console.log("json data = ", data);
-//     repositories = [...data];
-//     console.log ("repositories array =", repositories);
-
-// // Finding the project section and ul
-// const projects = document.getElementById("Projects");
-// const projectList = projects.getElementByTagName("ul");
-
-// // Creating the repositories list
-// for (let i = 0; i < repositories.length; i++) {
-//     let project = document.createElement("li");
-//     project.innerText = repositories[i].html_url;
-//     console.log(project);
-//     projectList[0].appendChild(project);
-// }
-// })
 
 //get repositories from github; get response
-fetch("https://api.github.com/users/sabina0407/repos")
+fetch("https://api.github.com/users/sabinova/repos")
   .then((response) => response.json())
   .then((repositories) => {
     let projectSection = document.getElementById("Projects");
@@ -189,11 +160,11 @@ fetch("https://api.github.com/users/sabina0407/repos")
     for (let i = 0; i < repositories.length; i++) {
       //creates repositaries list
       const project = document.createElement("li");
-      project.innerHTML += `<a href = "${repositories[i].html_url}" target="_blank"> ${repositories[i].name}  <br> <img src = "img/${repositories[i].name}.png"></a>`;
+      project.innerHTML = `<a href="${repositories[i].html_url}" target="_blank">${repositories[i].name}</a>`;
       projectList.appendChild(project);
     }
   })
 
   .catch((error) => {
-    console.error("An error occured:", error);
+    console.error("An error occurred:", error);
   });
