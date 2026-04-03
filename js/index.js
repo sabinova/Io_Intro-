@@ -6,52 +6,6 @@ const copyright = document.createElement("p");
 copyright.innerHTML = `Sabina Ruzieva &copy; ${thisYear}`;
 footer.appendChild(copyright);
 
-// adding skill items
-document.addEventListener("DOMContentLoaded", () => {
-  const skills = [
-    { imgSrc: "img/html.png", altText: "html_logo", title: "HTML" },
-    { imgSrc: "img/css.jpg", altText: "css_logo", title: "CSS" },
-    { imgSrc: "img/js.jpg", altText: "js_logo", title: "JavaScript" },
-    { imgSrc: "img/python.png", altText: "python_logo", title: "Python" },
-    { imgSrc: "img/linux.png", altText: "linux_logo", title: "Linux" },
-    { imgSrc: "img/github.png", altText: "github_logo", title: "GitHub" },
-  ];
-
-  const skillsContainer = document.querySelector(".skills-container");
-
-  skills.forEach((skill) => {
-    const listItem = document.createElement("li");
-    listItem.classList.add("skill-box");
-
-    const skillTitle = document.createElement("div");
-    skillTitle.classList.add("skill-title");
-
-    const skillImg = document.createElement("div");
-    skillImg.classList.add("skill-img");
-
-    const img = document.createElement("img");
-    img.src = skill.imgSrc;
-    img.alt = skill.altText;
-    img.classList.add("skill-icon");
-
-    skillImg.appendChild(img);
-
-    const h3 = document.createElement("h3");
-    h3.textContent = skill.title;
-
-    skillTitle.appendChild(skillImg);
-    skillTitle.appendChild(h3);
-
-    const p = document.createElement("p");
-    p.textContent = "Lorem ipsum dolor sit amet consectetur, adipisicing elit.";
-
-    listItem.appendChild(skillTitle);
-    listItem.appendChild(p);
-
-    skillsContainer.appendChild(listItem);
-  });
-});
-
 // active scrolling and menu-icon
 let menuIcon = document.querySelector("#menu-icon");
 let navbar = document.querySelector(".navbar");
