@@ -104,21 +104,3 @@ messageForm.addEventListener("submit", function (event) {
   messageSection.style.display = "block";
 });
 
-
-//get repositories from github; get response
-fetch("https://api.github.com/users/sabinova/repos")
-  .then((response) => response.json())
-  .then((repositories) => {
-    let projectSection = document.getElementById("Projects");
-    let projectList = projectSection.querySelector("ul");
-    for (let i = 0; i < repositories.length; i++) {
-      //creates repositaries list
-      const project = document.createElement("li");
-      project.innerHTML = `<a href="${repositories[i].html_url}" target="_blank">${repositories[i].name}</a>`;
-      projectList.appendChild(project);
-    }
-  })
-
-  .catch((error) => {
-    console.error("An error occurred:", error);
-  });
